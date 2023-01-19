@@ -4,7 +4,7 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding: 40px 4% 0 4%;
+  padding: 40px 4% 40px 4%;
   height: 100%;
 `;
 

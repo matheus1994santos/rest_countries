@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-const Container = styled.section`
+const StyledPatchCard = styled.section`
   display: flex;
-  padding: 40px 4% 0 4%;
+  border: 1px solid ${ props => props.theme.colorShadow };
   height: 100%;
 `;
 
 export {
-  Container
+  StyledPatchCard,
 }

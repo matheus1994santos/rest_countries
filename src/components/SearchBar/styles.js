@@ -10,8 +10,9 @@ const Container = styled.nav`
 `;
 
 const InputSearch = styled.input.attrs({type: 'search'})`
-  width: 350px;
-  padding: 16px 12px;
+  max-width: 500px;
+  width: 100%;
+  padding: 16px 28px;
   font-size: 12px;
   outline: none;
   border: none;
