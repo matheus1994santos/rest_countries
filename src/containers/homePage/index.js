@@ -3,17 +3,24 @@ import React from 'react'
 import Page from '../../components/Page'
 import Content from '../../components/Content'
 import SearhBar from '../../components/SearchBar'
-
-import {StyledPatchCard} from './styles'
 import Card from '../../components/Card'
 
-const HomePage = () => {
+import { StyledPatchCard } from './styles'
+
+const HomePage = ({info}) => {
+
   return (
     <Page>
       <Content>
         <SearhBar/>
         <StyledPatchCard>
-          <Card/>
+          {info &&  info.map( props => <Card 
+            img={props.flags.png}
+            country={props.name.common}
+            region={props.region}
+            capital={props.capital}
+            population={props.population}          
+          />)}
         </StyledPatchCard>
       </Content>
     </Page>

@@ -4,7 +4,7 @@ const Container = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  min-height: 975px;
   background-color: ${ props => props.theme.main };
 `;
 
