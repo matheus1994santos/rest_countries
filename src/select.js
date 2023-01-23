@@ -1,6 +1,8 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { initialState } from "./slice";
 
-const selectData = state => state || initialState;
+const selectData = state => state;
 
-export { selectData };
+const selectDataInfo = createSelector(selectData, state => state.countries.data)
+
+export { selectData, selectDataInfo };
