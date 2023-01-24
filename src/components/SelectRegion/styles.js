@@ -12,6 +12,10 @@ export const Container = styled.nav`
   color: ${props => props.theme.text};
   background-color: ${props => props.theme.content};
   height: 100%;
+
+  a{
+    cursor: pointer;
+  }
 `;
 
 export const StyledSelectRegion = styled.div`
