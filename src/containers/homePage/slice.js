@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
-  data: [],
+  dataHome: [],
 }
 
 export const countriesSlice = createSlice({
   name: 'dataHome',
   initialState,
   reducers:{
-
+    
   }
 })
 

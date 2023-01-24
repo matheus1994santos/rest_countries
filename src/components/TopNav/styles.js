@@ -15,6 +15,11 @@ const Bar = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 100%;
+
+  a{
+    color: ${props => props.theme.text};
+    text-decoration: none;
+  }
 `;
 
 const Title = styled.h1`

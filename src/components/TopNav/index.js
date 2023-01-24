@@ -6,7 +6,7 @@ const TopNav = () => {
   return (
     <Container>
       <Bar>
-        <Title>Where in the world?</Title>
+        <a href='./'><Title>Where in the world?</Title></a>
         <ButtomTheme/>
       </Bar>
     </Container>

@@ -20,14 +20,14 @@ export const Container = styled.nav`
 
 export const StyledSelectRegion = styled.div`
   position: absolute;
-  top: 42px;
+  top: 50px;
   left: -18px;
-  display: flex;
+  display: ${({open}) => open ? 'flex' : 'none'};
   flex-direction: column;
   padding: 1px 18px;
   a{
     padding: 6px 18px;
     background-color: ${props => props.theme.content};
-    width: 180px;
+    width: 210px;
   }
 `;

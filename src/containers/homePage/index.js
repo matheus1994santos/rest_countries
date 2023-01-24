@@ -7,23 +7,32 @@ import Card from '../../components/Card'
 
 import { StyledPatchCard } from './styles'
 import { useSelector } from 'react-redux'
-import { selectHomeInfo } from './selector'
+import { selectHomeContinentFilter, selectHomeInfo } from './selector'
 
 const HomePage = () => {
   const countries = useSelector(selectHomeInfo);
-  console.log(countries)
+  const region = useSelector(selectHomeContinentFilter);
+
   return (
     <Page>
       <Content>
         <SearhBar/>
         <StyledPatchCard>
-          {countries && countries.map( (props, index) =>  index < 8 ? <Card key={index}
+          {countries && countries.map( (props, index) => region === null && index < 8 ? <Card key={index}
             img={props.flags.png}
             country={props.name.common}
             region={props.region}
             capital={props.capital}
             population={props.population}          
-          /> : null)}
+          /> : region === props.region ? <Card key={index}
+          img={props.flags.png}
+          country={props.name.common}
+          region={props.region}
+          capital={props.capital}
+          population={props.population}          
+        /> 
+          : null
+          )}
         </StyledPatchCard>
       </Content>
     </Page>
