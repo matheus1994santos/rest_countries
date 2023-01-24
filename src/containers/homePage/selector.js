@@ -1,11 +1,12 @@
 import { createSelector } from "@reduxjs/toolkit";
 
-const selectHome = state => state.countries.data;
+const selectHome = state => state.countries;
+const selectHomeInfo = createSelector(selectHome, state => state.data)
 
 const selectHomeContinent = state => state.region;
-
 const selectHomeContinentFilter = createSelector(selectHomeContinent, state => state.region)
 
-const selectHomeInfo = createSelector(selectHome, state => state)
+const selectHomeSearch = state => state.country;
+const selectHomeSearchInfo = createSelector(selectHomeSearch, state => state)
 
-export { selectHome, selectHomeInfo, selectHomeContinentFilter };
+export { selectHome, selectHomeInfo, selectHomeContinentFilter, selectHomeSearchInfo };
