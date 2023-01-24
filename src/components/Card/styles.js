@@ -1,25 +1,27 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 280px;
-  height: 400px;
+  width: 332px;
+  padding-bottom: 20px;
   background-color: ${ props => props.theme.content };
 `;
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 20px;
   padding: 0 20px;
   color: ${ props => props.theme.text };
 
   h1{
     padding: 18px 0;
-    font-size: 26px;
+    font-size: 29px;
   }
 
   nav{
     display: flex;
     flex-direction: column;
+    padding-bottom: 20px;
     gap: 4px;
 
     p > span{

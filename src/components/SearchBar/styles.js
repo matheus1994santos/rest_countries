@@ -9,9 +9,10 @@ const Container = styled.nav`
   }
 `;
 
-const InputSearch = styled.input.attrs({type: 'search'})`
+const StyledInputSearch = styled.input.attrs({type: 'search'})`
   max-width: 500px;
   width: 100%;
+  margin-right: 100px;
   padding: 16px 28px;
   font-size: 12px;
   outline: none;
@@ -24,5 +25,5 @@ const InputSearch = styled.input.attrs({type: 'search'})`
 
 export {
   Container,
-  InputSearch
+  StyledInputSearch
 }

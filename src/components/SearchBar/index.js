@@ -1,12 +1,12 @@
 import React from 'react'
 import SelectRegion from '../SelectRegion'
-import { Container, InputSearch } from './styles'
+import { Container, StyledInputSearch } from './styles'
 
 const SearhBar = () => {
 
   return (
     <Container>
-      <InputSearch placeholder='Search for a country...'/>
+      <StyledInputSearch placeholder='Search for a country...'/>
       <SelectRegion/>
     </Container>
   )

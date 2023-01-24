@@ -6,8 +6,8 @@ export const Container = styled.nav`
   flex-direction: column;
   justify-content: space-between;
   /* align-items: center; */
-  width: 180px;
-  padding: 12px 18px;
+  width: 210px;
+  padding: 16px 28px;
   font-size: 12px;
   color: ${props => props.theme.text};
   background-color: ${props => props.theme.content};
