@@ -12,33 +12,37 @@ import { selectHomeContinentFilter, selectHomeInfo, selectHomeSearchInfo } from 
 const HomePage = () => {
   const countries = useSelector(selectHomeInfo);
   const region = useSelector(selectHomeContinentFilter);
-  const infoSearch = useSelector(selectHomeSearchInfo)
+  const infoSearch = useSelector(selectHomeSearchInfo);
 
   return (
     <Page>
       <Content>
         <SearhBar/>
         <StyledPatchCard>
-          {countries && countries.map( (props, index) => region === null && index < 8 ? 
           
-          <Card key={index}
-            img={props.flags.png}
-            country={props.name.common}
-            region={props.region}
-            capital={props.capital}
-            population={props.population}    
+          {countries && countries.map( (props, index) => (
+            region === null && index < 8 ? 
+         
+           <Card key={index}
+             img={props.flags.png}
+             country={props.name.common}
+             region={props.region}
+             capital={props.capital}
+             population={props.population}    
 
-          /> : region === props.region ? 
+           /> : region === props.region ? 
 
-          <Card key={index}
-            img={props.flags.png}
-            country={props.name.common}
-            region={props.region}
-            capital={props.capital}
-            population={props.population}          
-          /> 
-          : null          
-          )}
+           <Card key={index}
+             img={props.flags.png}
+             country={props.name.common}
+             region={props.region}
+             capital={props.capital}
+             population={props.population}          
+           /> 
+           : null          
+           ))
+          }
+          
         </StyledPatchCard>
       </Content>
     </Page>
@@ -46,3 +50,17 @@ const HomePage = () => {
 }
 
 export default HomePage
+
+
+// .filter((props,index) => (
+//   infoSearch === props.name.common ? 
+//   <Card key={index}
+//     img={props.flags.png}
+//     country={props.name.common}
+//     region={props.region}
+//     capital={props.capital}
+//     population={props.population}    
+
+//   /> : null
+
+// ))

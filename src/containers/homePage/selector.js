@@ -7,6 +7,6 @@ const selectHomeContinent = state => state.region;
 const selectHomeContinentFilter = createSelector(selectHomeContinent, state => state.region)
 
 const selectHomeSearch = state => state.country;
-const selectHomeSearchInfo = createSelector(selectHomeSearch, state => state)
+const selectHomeSearchInfo = createSelector(selectHomeSearch, state => state.country)
 
 export { selectHome, selectHomeInfo, selectHomeContinentFilter, selectHomeSearchInfo };

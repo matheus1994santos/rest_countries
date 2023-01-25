@@ -24,10 +24,10 @@ export const StyledSelectRegion = styled.div`
   left: -18px;
   display: ${({open}) => open ? 'flex' : 'none'};
   flex-direction: column;
-  padding: 1px 18px;
+  padding: 4px 18px;
   a{
     padding: 6px 18px;
     background-color: ${props => props.theme.content};
-    width: 210px;
+    width: 260px;
   }
 `;

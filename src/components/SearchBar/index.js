@@ -19,7 +19,11 @@ const SearhBar = () => {
 
   return (
     <Container>
-      <StyledInputSearch value={inputValue} onChange={onInputValue} placeholder='Search for a country...'/>
+      <StyledInputSearch 
+        value={inputValue} 
+        onChange={onInputValue} 
+        placeholder='Search for a country...'
+      />
       <SelectRegion/>
     </Container>
   )
