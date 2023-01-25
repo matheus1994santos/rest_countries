@@ -5,12 +5,12 @@ export const Container = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* align-items: center; */
-  width: 210px;
-  padding: 16px 28px;
-  font-size: 12px;
+  width: 260px;
+  padding: 16px 14px;
+  font-size: 14px;
   color: ${props => props.theme.text};
   background-color: ${props => props.theme.content};
+  box-shadow: 2px 1px 4px ${props => props.theme.colorShadow};
   height: 100%;
 
   a{

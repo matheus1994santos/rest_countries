@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Content, StyledImage } from './styles'
+import { Container, StyledContent, StyledImage } from './styles'
 
 const Card = ({img, country, region, capital, population}) => {
 
@@ -9,14 +9,14 @@ const Card = ({img, country, region, capital, population}) => {
         <img src={img} />
       </StyledImage>
       
-      <Content>
+      <StyledContent>
         <h1>{country}</h1>
         <nav>
           <p><span>Population: </span> <a>{population}</a></p>
           <p><span>Region: </span><a>{region}</a></p>
           <p><span>Capital: </span><a>{capital}</a></p>
         </nav>
-      </Content>
+      </StyledContent>
     </Container>
   )
 }

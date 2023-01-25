@@ -14,7 +14,7 @@ const StyledInputSearch = styled.input.attrs({type: 'search'})`
   width: 100%;
   margin-right: 100px;
   padding: 16px 28px;
-  font-size: 12px;
+  font-size: 14px;
   outline: none;
   border: none;
   box-shadow: 2px 1px 4px ${props => props.theme.colorShadow};
