@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch, use } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { onRegion } from './slice'
 
 import { Container, StyledSelectRegion } from './styles'
@@ -24,13 +24,13 @@ const SelectRegion = () => {
   
   return (
     <Container >
-      <a onClick={onOpenSelect}>{!value ? 'Filter by Region' : value}</a>
+      <p onClick={onOpenSelect}>{!value ? 'Filter by Region' : value} </p>
       <StyledSelectRegion onClick={onSelectRegion} open={selectOpen}>
-        <a>Africa</a>
-        <a>Americas</a>
-        <a>Asia</a>
-        <a>Europe</a>
-        <a>Oceania</a>
+        <p>Africa</p>
+        <p>Americas</p>
+        <p>Asia</p>
+        <p>Europe</p>
+        <p>Oceania</p>
       </StyledSelectRegion>
     </Container>
   )

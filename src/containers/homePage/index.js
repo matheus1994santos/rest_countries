@@ -13,14 +13,25 @@ const HomePage = () => {
   const countries = useSelector(selectHomeInfo);
   const region = useSelector(selectHomeContinentFilter);
   const infoSearch = useSelector(selectHomeSearchInfo);
-
+  
   return (
     <Page>
       <Content>
         <SearhBar/>
         <StyledPatchCard>
           
-          {countries && countries.map( (props, index) => (
+          {countries && countries.filter((props, index) => (
+            infoSearch === props.name.common || infoSearch === '' ? 
+         
+            <Card key={index}
+              img={props.flags.png}
+              country={props.name.common}
+              region={props.region}
+              capital={props.capital}
+              population={props.population}    
+ 
+            /> : null
+          )).map( (props, index) => (
             region === null && index < 8 ? 
          
            <Card key={index}

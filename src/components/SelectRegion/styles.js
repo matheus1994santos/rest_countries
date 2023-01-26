@@ -13,7 +13,7 @@ export const Container = styled.nav`
   box-shadow: 2px 1px 4px ${props => props.theme.colorShadow};
   height: 100%;
 
-  a{
+  p{
     cursor: pointer;
   }
 `;
@@ -25,7 +25,7 @@ export const StyledSelectRegion = styled.div`
   display: ${({open}) => open ? 'flex' : 'none'};
   flex-direction: column;
   padding: 4px 18px;
-  a{
+  p{
     padding: 6px 18px;
     background-color: ${props => props.theme.content};
     width: 260px;
