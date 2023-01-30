@@ -5,9 +5,11 @@ import { Container, StyledButtonBack } from './styles'
 const ReturnBar = () => {
   return (
     <Container>
-      <StyledButtonBack>
-        <NavLink to={'/'}>← Back</NavLink>
-      </StyledButtonBack>
+      <NavLink to={'/'}>    
+        <StyledButtonBack>
+          ← Back
+        </StyledButtonBack>
+      </NavLink>
     </Container>
   )
 }

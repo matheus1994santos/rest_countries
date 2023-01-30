@@ -8,10 +8,10 @@ const StyledPatchCard = styled.section`
   grid-template-columns: auto auto auto auto;
   gap: 68px;
 
-  a{
-    color: ${props => props.theme.text};
-    text-decoration: none;
-  }
+    a{
+      color: ${props => props.theme.text};
+      text-decoration: none;
+    }
 
   @media (max-width: 812px){
     justify-content: center;

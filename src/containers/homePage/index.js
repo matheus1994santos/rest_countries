@@ -39,7 +39,7 @@ const HomePage = ({setName}) => {
 
           )).map( (props, index) => (
 
-            region === null && index < 8 ? 
+            region === null && index < 20 ? 
          
           <NavLink 
             to={'/Country'} 

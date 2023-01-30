@@ -12,6 +12,7 @@ export const StyledCountryInfo = styled.section`
     width: 100%;
     img{
       background-size: cover;
+      min-width: 480px;
       width: 100%;
       height: 100%;
     }
@@ -23,11 +24,11 @@ export const StyledCountryData = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 14px;
 
-  max-width: 940px;
+  min-width: 500px;
   width: 100%;
-  padding: 46px 0px;
+  padding: 40px 10px;
 
   h1{
     font-size: 36px;
@@ -36,20 +37,26 @@ export const StyledCountryData = styled.div`
 
 export const StyledContent = styled.div`
   display: flex;
-  flex-wrap: nowrap;
+  flex-flow: wrap;
   justify-content: space-between;
   color: ${props => props.theme.text};
+  gap: 8px;
   
   ul{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
+    padding-top: 20px;
+  
 
     list-style-type: none;
     font-size: 20px;
 
     max-width: 500px;
-    width: 100%;
+    
+    li{
+      width: 258px;
+    }
 
     span{
       color: ${props => props.theme.text2};
@@ -60,8 +67,10 @@ export const StyledContent = styled.div`
 
 export const StyledBorderCountries = styled.div`
   display: flex;
+  flex-flow: wrap;
+  max-width: 630px;
   gap: 10px;
-  padding-top: 50px;
+  padding-top: 14px;
 `;
 
 export const StyledButtonCountries = styled.div`
