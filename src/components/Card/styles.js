@@ -31,7 +31,7 @@ export const StyledContent = styled.div`
       font-size: 20px;
     }
 
-    p > a{
+    p > label{
       padding-left: 2px;
       font-size: 18px;
       font-weight: 300;

@@ -1,15 +1,18 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import CountryPage from "./containers/CountryPage";
 
 import HomePage from "./containers/homePage";
 import { selectThemeCurrent } from "./selector";
 
-import { loadCountries } from "./slice";
+import { loadCard, loadCountries } from "./slice";
 import { lightMode, darkMode } from './utils/theme';
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const [nameCountry, setNameCountry] = React.useState('')
   const Theme = useSelector(selectThemeCurrent);
   React.useEffect(() => {
     fetch(`https://restcountries.com/v3.1/all`)
@@ -19,9 +22,16 @@ function App() {
     } )
   })
 
+  React.useEffect(()=>{
+    dispatch(loadCard({card: nameCountry}))
+  })
+
   return (
     <ThemeProvider theme={Theme === 'Light Mode' ? lightMode : darkMode}>
-      <HomePage/>
+      <Routes>
+        <Route path="/" element={<HomePage setName={setNameCountry}/>}/>
+        <Route path="/Country" element={<CountryPage name={nameCountry}/>}/>
+      </Routes>
     </ThemeProvider>
   );
 }

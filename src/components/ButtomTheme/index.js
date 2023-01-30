@@ -24,7 +24,7 @@ const ButtomTheme = () => {
 
   return (
     <StyledButtomTheme onClick={handleClick} >
-      {themeMode}
+      { !isAtive ? 'Light Mode' : 'Dark Mode' }
     </StyledButtomTheme>
   )
 }

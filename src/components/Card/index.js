@@ -1,20 +1,25 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
 import { Container, StyledContent, StyledImage } from './styles'
 
-const Card = ({img, country, region, capital, population}) => {
+const Card = ({props, setName}) => {
+
+  function handleClick(){
+    setName(props.name.common)
+  }
 
   return (
-    <Container>
+    <Container onClick={handleClick}>
       <StyledImage>
-        <img src={img} />
+        <img src={props.flags.png}/>
       </StyledImage>
       
       <StyledContent>
-        <h1>{country}</h1>
+        <h1>{props.name.common}</h1>
         <nav>
-          <p><span>Population: </span> <a>{population}</a></p>
-          <p><span>Region: </span><a>{region}</a></p>
-          <p><span>Capital: </span><a>{capital}</a></p>
+          <p><span>Population: </span> <label>{props.population}</label></p>
+          <p><span>Region: </span><label>{props.region}</label></p>
+          <p><span>Capital: </span><label>{props.capital}</label></p>
         </nav>
       </StyledContent>
     </Container>

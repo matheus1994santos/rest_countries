@@ -8,11 +8,13 @@ import Card from '../../components/Card'
 import { StyledPatchCard } from './styles'
 import { useSelector } from 'react-redux'
 import { selectHomeContinentFilter, selectHomeInfo, selectHomeSearchInfo } from './selector'
+import { NavLink } from 'react-router-dom'
 
-const HomePage = () => {
+const HomePage = ({setName}) => {
   const countries = useSelector(selectHomeInfo);
   const region = useSelector(selectHomeContinentFilter);
   const infoSearch = useSelector(selectHomeSearchInfo);
+
   
   return (
     <Page>
@@ -23,33 +25,44 @@ const HomePage = () => {
           {countries && countries.filter((props, index) => (
             infoSearch === props.name.common || infoSearch === '' ? 
          
-            <Card key={index}
-              img={props.flags.png}
-              country={props.name.common}
-              region={props.region}
-              capital={props.capital}
-              population={props.population}    
- 
-            /> : null
+          <NavLink 
+            to={'/Country'} 
+            key={index}
+          >
+              <Card 
+                props={props}
+                setName={setName} 
+              />
+          </NavLink>
+            
+            : null
+
           )).map( (props, index) => (
+
             region === null && index < 8 ? 
          
-           <Card key={index}
-             img={props.flags.png}
-             country={props.name.common}
-             region={props.region}
-             capital={props.capital}
-             population={props.population}    
+          <NavLink 
+            to={'/Country'} 
+            key={index}
+          >
+            <Card 
+              props={props}
+              setName={setName}  
+            />
+          </NavLink>
+           
+           : region === props.region ? 
 
-           /> : region === props.region ? 
+          <NavLink 
+            to={'/Country'} 
+            key={index}
+          >
+            <Card 
+              props={props}
+              setName={setName} 
+            />
+          </NavLink>
 
-           <Card key={index}
-             img={props.flags.png}
-             country={props.name.common}
-             region={props.region}
-             capital={props.capital}
-             population={props.population}          
-           /> 
            : null          
            ))
           }
@@ -62,16 +75,3 @@ const HomePage = () => {
 
 export default HomePage
 
-
-// .filter((props,index) => (
-//   infoSearch === props.name.common ? 
-//   <Card key={index}
-//     img={props.flags.png}
-//     country={props.name.common}
-//     region={props.region}
-//     capital={props.capital}
-//     population={props.population}    
-
-//   /> : null
-
-// ))

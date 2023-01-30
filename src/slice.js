@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
   data: [],
+  card: ''
 }
 
 export const countriesSlice = createSlice({
@@ -10,10 +11,13 @@ export const countriesSlice = createSlice({
   reducers:{
     loadCountries: (state, action) =>{
       state.data = action.payload.data
+    },
+    loadCard: (state, action) =>{
+      state.card = action.payload.card
     }
   }
 })
 
-export const { loadCountries } = countriesSlice.actions
+export const { loadCountries, loadCard } = countriesSlice.actions
 
 export default countriesSlice.reducer;
