@@ -6,7 +6,7 @@ const StyledPatchCard = styled.section`
   justify-content: space-between;
   align-items: center;
   grid-template-columns: auto auto auto auto;
-  gap: 68px;
+  gap: 24px;
 
     a{
       color: ${props => props.theme.text};

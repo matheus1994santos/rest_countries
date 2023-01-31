@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.nav`
   position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   width: 260px;
   padding: 16px 14px;
@@ -16,6 +15,21 @@ export const Container = styled.nav`
   p{
     cursor: pointer;
   }
+
+  nav{
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    
+    img{
+      height: 18px;
+      width: 18px;
+      color: white;
+      stroke: white;
+    }
+  }
+
 `;
 
 export const StyledSelectRegion = styled.div`

@@ -19,7 +19,7 @@ export const StyledContent = styled.div`
 
   h1{
     padding-top: 8px;
-    font-size: 29px;
+    font-size: 23px;
   }
 
   nav{
@@ -29,12 +29,12 @@ export const StyledContent = styled.div`
     gap: 4px;
 
     p > span{
-      font-size: 20px;
+      font-size: 17px;
     }
 
     p > label{
       padding-left: 2px;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 300;
       color: ${props => props.theme.text2}; // rgba(255, 255, 255, 0.5);
     }

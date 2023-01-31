@@ -12,7 +12,6 @@ import { lightMode, darkMode } from './utils/theme';
 
 function App() {
   const dispatch = useDispatch();
-  const [nameCountry, setNameCountry] = React.useState('')
   const Theme = useSelector(selectThemeCurrent);
   React.useEffect(() => {
     fetch(`https://restcountries.com/v3.1/all`)
@@ -22,15 +21,11 @@ function App() {
     } )
   })
 
-  React.useEffect(()=>{
-    dispatch(loadCard({card: nameCountry}))
-  })
-
   return (
     <ThemeProvider theme={Theme === 'Light Mode' ? lightMode : darkMode}>
       <Routes>
-        <Route path="/" element={<HomePage setName={setNameCountry}/>}/>
-        <Route path="/Country" element={<CountryPage name={nameCountry}/>}/>
+        <Route path="/" element={<HomePage />}/>
+        <Route path="/:name" element={<CountryPage />}/>
       </Routes>
     </ThemeProvider>
   );

@@ -1,12 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 import Content from '../../components/Content'
 import Page from '../../components/Page'
 import ReturnBar from '../../components/ReturnBar'
 
-import { selectCountryInfo, selectCountryLanguages } from './selector'
 import { 
   StyledBorderCountries, 
   StyledButtonCountries, 
@@ -15,50 +14,55 @@ import {
   StyledCountryInfo 
 } from './styles'
 
-const CountryPage = ({name}) => {
-  const Country = useSelector(selectCountryInfo);
-  const currencies = useSelector(selectCountryLanguages);
-  const moeda = currencies.map((props) => props)
-  console.log(Country.currencies)
+const CountryPage = () => {
+  const [country, setCountry] = useState({})
+  const {name} = useParams();
+  const { population } = country;
+
+  const currencies = Object.values((country.currencies || {})).map(curr => curr.name).join(', ')
+  const languages = Object.values((country.languages || {})).map(curr => curr).join(', ');
+  const formattedPopulation = population ? population.toLocaleString('pt-BR') : 0;
+
+  React.useEffect(()=>{
+    fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`)
+    .then( json => json.json() )
+    .then( resp => setCountry(resp[0]) )
+  },[])
   
   return (
     <Page>
       <Content>
         <ReturnBar/>
-        { Country && Country.map((props, index) => (
-          name === props.name.common ?
-
-          <StyledCountryInfo key={index}>
+          {!country.name && null}
+          {country.name && (<StyledCountryInfo>
             <article>
-              <img src={props.flags.png}/>
+              <img src={(country.flags || {}).png}/>
             </article>
             <StyledCountryData>  
-              <h1>{props.name.common}</h1>
+              <h1>{(country.name || {}).common}</h1>
               <StyledContent>
                 <ul>
-                  <li> Native Name: <span>{props.name.official}</span></li>
-                  <li> Population: <span>{props.population}</span></li>
-                  <li> Region: <span>{props.region}</span></li>
-                  <li> Sub Region: <span>{props.subregion}</span></li>
-                  <li> Capital: <span>{props.capital}</span></li>
+                  <li> Native Name: <span>{country.name.official}</span></li>
+                  <li> Population: <span>{formattedPopulation}</span></li>
+                  <li> Region: <span>{country.region}</span></li>
+                  <li> Sub Region: <span>{country.subregion}</span></li>
+                  <li> Capital: <span>{(country.capital || []).join(', ')}</span></li>
                 </ul>
 
                 <ul>
-                  <li> Top Level Domain: <span>{props.tld}</span></li>
-                  <li> Currencies: <span></span></li>
-                  <li> Languages: </li>
+                  <li> Top Level Domain: <span>{country.tld}</span></li>
+                  <li> Currencies: <span>{currencies}</span></li>
+                  <li> Languages: <span>{languages}</span></li>
                 </ul>
               </StyledContent>
               <StyledBorderCountries>
                 Border Countries: 
-                { props.borders && props.borders.map( (prop, index) => (
+                { country.borders && country.borders.map( (prop, index) => (
                   <StyledButtonCountries key={index} >{prop}</StyledButtonCountries>
                 )) }
               </StyledBorderCountries>
             </StyledCountryData>
-          </StyledCountryInfo>
-          : null
-        )) }
+          </StyledCountryInfo>)}
       </Content>
     </Page>
   )

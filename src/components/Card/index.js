@@ -2,24 +2,21 @@
 import React from 'react'
 import { Container, StyledContent, StyledImage } from './styles'
 
-const Card = ({props, setName}) => {
-
-  function handleClick(){
-    setName(props.name.common)
-  }
-
+const Card = ({country }) => {
+  const { population } = country;
+  const formattedPopulation = population ? population.toLocaleString('pt-BR') : 0;
   return (
-    <Container onClick={handleClick}>
+    <Container>
       <StyledImage>
-        <img src={props.flags.png}/>
+        <img src={country.flags.png}/>
       </StyledImage>
       
       <StyledContent>
-        <h1>{props.name.common}</h1>
+        <h1>{country.name.common}</h1>
         <nav>
-          <p><span>Population: </span> <label>{props.population}</label></p>
-          <p><span>Region: </span><label>{props.region}</label></p>
-          <p><span>Capital: </span><label>{props.capital}</label></p>
+          <p><span>Population: </span> <label>{formattedPopulation}</label></p>
+          <p><span>Region: </span><label>{country.region}</label></p>
+          <p><span>Capital: </span><label>{(country.capital || []).join(', ')}</label></p>
         </nav>
       </StyledContent>
     </Container>

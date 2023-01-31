@@ -1,13 +1,19 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { onRegion } from './slice'
 
+import Up from '../../icons/chevron-up-outline.svg'
+import Down from '../../icons/chevron-down-outline.svg'
+
+import { onRegion } from './slice'
 import { Container, StyledSelectRegion } from './styles'
 
 const SelectRegion = () => {
   const [selectOpen, setSelectOpen] = React.useState(false)
   const [value, setValue] = React.useState(null)
   const dispatch = useDispatch();
+
+  const UpDown = <img src={selectOpen ? Up : Down}/>
+
 
   function onOpenSelect(){
     setSelectOpen(!selectOpen)
@@ -24,7 +30,7 @@ const SelectRegion = () => {
   
   return (
     <Container >
-      <p onClick={onOpenSelect}>{!value ? 'Filter by Region' : value} </p>
+      <nav onClick={onOpenSelect}><p>{!value ? 'Filter by Region' : value} </p>{UpDown}</nav>
       <StyledSelectRegion onClick={onSelectRegion} open={selectOpen}>
         <p>Africa</p>
         <p>Americas</p>

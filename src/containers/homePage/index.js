@@ -10,10 +10,12 @@ import { useSelector } from 'react-redux'
 import { selectHomeContinentFilter, selectHomeInfo, selectHomeSearchInfo } from './selector'
 import { NavLink } from 'react-router-dom'
 
-const HomePage = ({setName}) => {
+const HomePage = () => {
   const countries = useSelector(selectHomeInfo);
   const region = useSelector(selectHomeContinentFilter);
   const infoSearch = useSelector(selectHomeSearchInfo);
+
+  
 
   
   return (
@@ -22,44 +24,41 @@ const HomePage = ({setName}) => {
         <SearhBar/>
         <StyledPatchCard>
           
-          {countries && countries.filter((props, index) => (
-            infoSearch === props.name.common || infoSearch === '' ? 
+          {countries && countries.filter((currCountry, index) => (
+           currCountry.name.common.toLowerCase().trim().includes(infoSearch.toLowerCase().trim()) ? 
          
           <NavLink 
-            to={'/Country'} 
+            to={`/${currCountry.name.common}`} 
             key={index}
           >
               <Card 
-                props={props}
-                setName={setName} 
+                country={currCountry}
               />
           </NavLink>
             
             : null
 
-          )).map( (props, index) => (
+          )).map( (currCountry, index) => (
 
-            region === null && index < 20 ? 
+            region === null ? 
          
           <NavLink 
-            to={'/Country'} 
+            to={`/${currCountry.name.common}`} 
             key={index}
           >
             <Card 
-              props={props}
-              setName={setName}  
+              country={currCountry}
             />
           </NavLink>
            
-           : region === props.region ? 
+           : region === currCountry.region ? 
 
           <NavLink 
-            to={'/Country'} 
+            to={`/${currCountry.name.common}`} 
             key={index}
           >
             <Card 
-              props={props}
-              setName={setName} 
+              country={currCountry}
             />
           </NavLink>
 

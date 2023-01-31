@@ -5,11 +5,13 @@ const selectCountry = state => state.countries;
 const selectCountryCurrent = createSelector(selectCountry, state => state.card)
 
 const selectCountryInfo = createSelector(selectCountry, state => state.data);
-const selectCountryLanguages = createSelector(selectCountryInfo, state => state)
+const selectCountryCurrencies = createSelector(selectCountry, state => (
+  state.data.map( ({currencies}) => currencies)
+));
 
 export {
   selectCountry,
   selectCountryCurrent,
   selectCountryInfo,
-  selectCountryLanguages
+  selectCountryCurrencies
 }
