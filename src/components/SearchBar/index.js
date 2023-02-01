@@ -2,11 +2,11 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import SelectRegion from '../SelectRegion'
 import { onCountry } from './slice'
-import { Container, StyledInputSearch } from './styles'
+import { Container, StyledBoxInputSearh, StyledInputSearch } from './styles'
 
 const SearhBar = () => {
   const [inputValue, setInputValue ] = React.useState('')
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   function onInputValue({target}){
     setInputValue(target.value)
@@ -19,11 +19,14 @@ const SearhBar = () => {
 
   return (
     <Container>
-      <StyledInputSearch 
-        value={inputValue} 
-        onChange={onInputValue} 
-        placeholder='Search for a country...'
-      />
+      <StyledBoxInputSearh>
+      <i className="fa-solid fa-magnifying-glass"></i>
+        <StyledInputSearch 
+          value={inputValue} 
+          onChange={onInputValue} 
+          placeholder={`Search for a country...`}
+        />
+      </StyledBoxInputSearh>
       <SelectRegion/>
     </Container>
   )

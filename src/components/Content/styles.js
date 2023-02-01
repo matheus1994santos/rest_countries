@@ -5,7 +5,7 @@ const Container = styled.section`
   flex-direction: column;
   gap: 50px;
   padding: 40px 4% 40px 4%;
-  height: 100%;
+  background-color: ${ props => props.theme.main };
 
   a{
     color: ${props => props.theme.text};

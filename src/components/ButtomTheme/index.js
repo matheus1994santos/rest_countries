@@ -3,14 +3,14 @@ import { useDispatch } from 'react-redux';
 import { currentTopic } from './slice';
 import { StyledButtomTheme } from './styles'
 
-const ButtomTheme = () => {
+const ButtomTheme = ({setTheme}) => {
   const [isAtive, setIsAtive] = React.useState(false)
   const [themeMode, setThemeMode] = React.useState("");
   const dispatch = useDispatch();
   
 
   React.useEffect(()=>{
-    setThemeMode(isAtive ? 'Light Mode' : 'Dark Mode')
+    setTheme(isAtive ? 'Light Mode' : 'Dark Mode')
   }, [isAtive])
 
   function handleClick(){
@@ -24,6 +24,7 @@ const ButtomTheme = () => {
 
   return (
     <StyledButtomTheme onClick={handleClick} >
+      <i className="fa-solid fa-moon"></i>
       { !isAtive ? 'Light Mode' : 'Dark Mode' }
     </StyledButtomTheme>
   )

@@ -9,15 +9,12 @@ export const countriesSlice = createSlice({
   name: 'countries',
   initialState,
   reducers:{
-    loadCountries: (state, action) =>{
+    requestCountries: (state, action) =>{
       state.data = action.payload.data
     },
-    loadCard: (state, action) =>{
-      state.card = action.payload.card
-    }
   }
 })
 
-export const { loadCountries, loadCard } = countriesSlice.actions
+export const { requestCountries } = countriesSlice.actions
 
 export default countriesSlice.reducer;

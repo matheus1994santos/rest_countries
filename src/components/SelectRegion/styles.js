@@ -4,9 +4,10 @@ export const Container = styled.nav`
   position: relative;
   display: flex;
   justify-content: space-between;
-  width: 260px;
+  width: 200px;
   padding: 16px 14px;
-  font-size: 14px;
+  font-size: 13px;
+  border-radius: 6px;
   color: ${props => props.theme.text};
   background-color: ${props => props.theme.content};
   box-shadow: 2px 1px 4px ${props => props.theme.colorShadow};
@@ -40,7 +41,7 @@ export const StyledSelectRegion = styled.div`
   flex-direction: column;
   padding: 4px 18px;
   p{
-    padding: 6px 18px;
+    padding: 8px 18px;
     background-color: ${props => props.theme.content};
     width: 260px;
   }

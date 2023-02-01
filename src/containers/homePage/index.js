@@ -14,9 +14,6 @@ const HomePage = () => {
   const countries = useSelector(selectHomeInfo);
   const region = useSelector(selectHomeContinentFilter);
   const infoSearch = useSelector(selectHomeSearchInfo);
-
-  
-
   
   return (
     <Page>

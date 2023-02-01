@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.nav`
   display: flex;
   justify-content: space-between;
-  padding: 20px 0px;
+  padding: 6px 0px;
 `;
 
 export const StyledButtonBack = styled.button`

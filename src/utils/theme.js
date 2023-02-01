@@ -10,7 +10,7 @@ const lightMode = {
   content: 'hsl(0, 0%, 100%)',
   main: 'hsl(0, 0%, 98%)',
   text: 'hsl(200, 15%, 8%)',
-  text2: 'rgba(0, 0, 0, 0.7)',
+  text2: 'rgba(0, 0, 0, 0.5)',
   colorShadow: 'rgba(0,0,0, 0.2)',
 }
 

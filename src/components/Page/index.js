@@ -6,7 +6,6 @@ import { Container } from './styled'
 const Page = ({children}) => {
   return (
     <Container>
-      <TopNav/>
       {children}
     </Container>
   )

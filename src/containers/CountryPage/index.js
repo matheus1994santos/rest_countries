@@ -7,6 +7,7 @@ import Page from '../../components/Page'
 import ReturnBar from '../../components/ReturnBar'
 
 import { 
+  Container,
   StyledBorderCountries, 
   StyledButtonCountries, 
   StyledContent, 
@@ -27,42 +28,42 @@ const CountryPage = () => {
     fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`)
     .then( json => json.json() )
     .then( resp => setCountry(resp[0]) )
-  },[])
+  },[name])
   
   return (
     <Page>
       <Content>
-        <ReturnBar/>
-          {!country.name && null}
-          {country.name && (<StyledCountryInfo>
-            <article>
-              <img src={(country.flags || {}).png}/>
-            </article>
-            <StyledCountryData>  
-              <h1>{(country.name || {}).common}</h1>
-              <StyledContent>
-                <ul>
-                  <li> Native Name: <span>{country.name.official}</span></li>
-                  <li> Population: <span>{formattedPopulation}</span></li>
-                  <li> Region: <span>{country.region}</span></li>
-                  <li> Sub Region: <span>{country.subregion}</span></li>
-                  <li> Capital: <span>{(country.capital || []).join(', ')}</span></li>
-                </ul>
+        <Container>
+          <ReturnBar/>
+            {!country.name && null}
+            {country.name && (<StyledCountryInfo>
+                <img src={(country.flags || {}).svg}/>
+              <StyledCountryData>  
+                <h1>{(country.name || {}).common}</h1>
+                <StyledContent>
+                  <ul>
+                    <li> Native Name: <span>{country.name.official}</span></li>
+                    <li> Population: <span>{formattedPopulation}</span></li>
+                    <li> Region: <span>{country.region}</span></li>
+                    <li> Sub Region: <span>{country.subregion}</span></li>
+                    <li> Capital: <span>{(country.capital || []).join(', ')}</span></li>
+                  </ul>
 
-                <ul>
-                  <li> Top Level Domain: <span>{country.tld}</span></li>
-                  <li> Currencies: <span>{currencies}</span></li>
-                  <li> Languages: <span>{languages}</span></li>
-                </ul>
-              </StyledContent>
-              <StyledBorderCountries>
-                Border Countries: 
-                { country.borders && country.borders.map( (prop, index) => (
-                  <StyledButtonCountries key={index} >{prop}</StyledButtonCountries>
-                )) }
-              </StyledBorderCountries>
-            </StyledCountryData>
-          </StyledCountryInfo>)}
+                  <ul>
+                    <li> Top Level Domain: <span>{country.tld}</span></li>
+                    <li> Currencies: <span>{currencies}</span></li>
+                    <li> Languages: <span>{languages}</span></li>
+                  </ul>
+                </StyledContent>
+                <StyledBorderCountries>
+                  Border Countries: 
+                  { country.borders && country.borders.map( (prop, index) => (
+                    <StyledButtonCountries key={index} >{prop}</StyledButtonCountries>
+                  )) }
+                </StyledBorderCountries>
+              </StyledCountryData>
+            </StyledCountryInfo>)}
+        </Container>
       </Content>
     </Page>
   )

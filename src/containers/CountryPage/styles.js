@@ -1,22 +1,34 @@
 import styled from "styled-components";
 
+export const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: 40px;
+  padding-top: 10px;
+`;
+
 export const StyledCountryInfo = styled.section`
   display: flex;
   justify-content: space-between;
-  gap: 30px;
-  max-height: 437px;
+  gap: 20px;
+  /* height: 100vh; */
 
-  article{
-    box-shadow: 0px 0px 11px ${props => props.theme.colorShadow};
-    max-width: 720px;
+  img{
+    max-width: 580px;
     width: 100%;
-    img{
-      background-size: cover;
-      min-width: 480px;
-      width: 100%;
-      height: 100%;
+
+    @media (max-width: 515px){
+      height: 300px;
     }
   }
+
+  @media (max-width: 1200px){
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
 `;
 
 export const StyledCountryData = styled.div`
@@ -24,14 +36,16 @@ export const StyledCountryData = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  justify-content: center;
+  gap: 10px;
 
-  min-width: 500px;
+  min-width: 340px;
   width: 100%;
-  padding: 40px 10px;
+  padding: 0px 16px;
 
   h1{
     font-size: 36px;
+    padding-left: 16px;
   }
 `;
 
@@ -46,6 +60,7 @@ export const StyledContent = styled.div`
     display: flex;
     flex-direction: column;
     gap: 8px;
+    padding: 0 16px;
     padding-top: 20px;
   
 
@@ -54,9 +69,6 @@ export const StyledContent = styled.div`
 
     max-width: 500px;
     
-    li{
-      width: 258px;
-    }
 
     span{
       color: ${props => props.theme.text2};
@@ -70,6 +82,7 @@ export const StyledBorderCountries = styled.div`
   flex-flow: wrap;
   max-width: 630px;
   gap: 10px;
+  padding: 0 16px;
   padding-top: 14px;
 `;
 

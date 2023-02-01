@@ -5,9 +5,8 @@ const StyledPatchCard = styled.section`
   flex-flow: wrap;
   justify-content: space-between;
   align-items: center;
-  grid-template-columns: auto auto auto auto;
   gap: 24px;
-
+  
     a{
       color: ${props => props.theme.text};
       text-decoration: none;
