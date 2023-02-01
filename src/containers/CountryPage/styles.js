@@ -68,7 +68,9 @@ export const StyledContent = styled.div`
     font-size: 20px;
 
     max-width: 500px;
-    
+    @media (max-width: 900px){
+      max-width: 700px;
+    }    
 
     span{
       color: ${props => props.theme.text2};
@@ -83,7 +85,7 @@ export const StyledBorderCountries = styled.div`
   max-width: 630px;
   gap: 10px;
   padding: 0 16px;
-  padding-top: 14px;
+  padding-top: 10px;
 `;
 
 export const StyledButtonCountries = styled.div`

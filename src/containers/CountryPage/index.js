@@ -37,7 +37,7 @@ const CountryPage = () => {
           <ReturnBar/>
             {!country.name && null}
             {country.name && (<StyledCountryInfo>
-                <img src={(country.flags || {}).svg}/>
+                <img src={(country.flags || {}).png}/>
               <StyledCountryData>  
                 <h1>{(country.name || {}).common}</h1>
                 <StyledContent>
